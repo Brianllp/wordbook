@@ -1,1 +1,22 @@
-p test
+p 英文を読み、何の単語を指すか答えなさい
+- @questions.each do |question|
+  - if question.id == 1
+    div #{question.question}
+    div #{question.answer}
+
+  / div #{question.question}
+  / div #{question.answer}
+h1 test
+
+button#test
+/ = button_to 'test', {:action => "main2"}, {:method => :get}
+
+javascript:
+  document.getElementById("test").onclick = function() {
+    const random = Math.floor( Math.random() * 50 );
+    console.log(random);
+  };
+
+  var pTag = $('p');
+
+  console.log( pTag[0] );
