@@ -1,7 +1,55 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+[
+  ['the plural of child', 'children'],
+  ['the process of teaching and learning, usually at school, college, or university', 'education'],
+  ['a male child, or a male person in general ', 'boy'],
+  ['a very young child who has not yet learned to speak or walk', 'baby'],
+  ['a group of people who are related to each other, especially a mother, a father, and their children', 'family'],
+  ['a child whose parents are both dead', 'orphan'],
+  ['a small group of people or things within a much larger group', 'minority'],
+  ['an animal such as a cat or a dog which you keep and care for at home', 'pet'],
+  ['all the people who live together in one house', 'household'],
+  ['a school for advanced education, especially in a particular profession or skill', 'college'],
+  ['the activity of making money by producing or buying and selling goods, or providing services', 'business'],
+  ['the practice or science of farming', 'agriculture'],
+  ['the plural of woman', 'women'],
+  ['an amount of money that you must pay to the government according to your income, property, goods etc and that is used to pay for public services', 'tax'],
+  ['an animal that lives in water, and uses its fins and tail to swim', 'fish'],
+  ['help that is provided for people who have personal or social problems', 'welfare'],
+  ['a series of sounds made by instruments or voices in a way that is pleasant or exciting', 'music'],
+  ['a large building where sick or injured people receive medical treatment', 'hospital'],
+  ['the power to make impossible things happen by saying special words or doing special actions', 'magic'],
+  ['the science concerned with the study of physical objects and substances, and of natural forces such as light, heat, and movement', 'physics'],
+  ['the ability to influence people or give them strong feelings', 'power'],
+  ['the mixture of gases around the Earth, that we breathe', 'air'],
+  ['the feeling that is produced by a particular food or drink when you put it in your mouth', 'taste'],
+  ['a game in which the players hit a small white ball into holes in the ground with a set of golf clubs, using as few hits as possible', 'golf'],
+  ['things that people and animals eat, such as vegetables or meat', 'food'],
+  ['a belief in one or more gods', 'religion'],
+  ['the art or process of making a drawing of something to show how you will make it or what it will look like', 'design'],
+  ['the activity of buying, selling, or exchanging goods within a country or between countries', 'trade'],
+  ['the scientific study of living things', 'biology'],
+  ['everything in the physical world that is not controlled by humans, such as wild plants and animals, earth and rocks, and the weather', 'nature'],
+  ['the rules by which words change their forms and are combined into sentences, or the study or use of these rules', 'grammar'],
+  ['the whole system of rules that people in a particular country or area must obey', 'law'],
+  ['the people who work for an official organization whose job is to catch criminals and make sure that people obey the law', 'police'],
+  ['a large organized group of people trained to fight on land in a war', 'army'],
+  ['money you earn that is paid according to the number of hours, days, or weeks that you work', 'wage'],
+  ['the activity of preparing food so that it is ready to eat, usually by heating it', 'cooking'],
+  ['【British English】 a game played by two teams of eleven players who try to kick a round ball into the other team’s goal', 'football'],
+  ['a small creature such as a fly or ant, that has six legs, and sometimes wings', 'insect'],
+  ['a structure such as a house, church, or factory, that has a roof and walls', 'building'],
+  ['the structure that covers or forms the top of a building, vehicle, tent etc', 'roof'],
+  ['a machine with an engine that is used to take people or things from one place to another, such as a car, bus, or truck', 'vehicle'],
+  ['a person, company, or organization that employs people', 'employer'],
+  ['a plan or aim', 'purpose'],
+  ['something you have decided to do', 'plan'],
+  ['a group such as a club or business that has formed for a particular purpose', 'organization'],
+  ['when there is fighting between two or more countries or between opposing groups within a country, involving large numbers of soldiers and weapons', 'war'],
+  ['the state that something is in, especially how good or bad its physical state is', 'condition'],
+  ['the study of the way in which money and goods are produced and used', 'economics'],
+  ['a substance used for treating illness, especially a liquid you drink', 'medicine']
+].each do |question, answer|
+  Question.create!(
+    { question: question, answer: answer }
+  )
+end
