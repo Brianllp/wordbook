@@ -10,4 +10,5 @@ html
   body
     - if current_user
       = link_to "ログアウト", destroy_user_session_path, method: :delete
+      br
     = yield
