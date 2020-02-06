@@ -1,44 +1,15 @@
 p 英文を読み、何の単語を指すか答えなさい
-- @questions.each do |question|
-  - if question.id == 1
-    div #{question.question}
-    div #{question.answer}
-    div
-      = form_with(model: @result, local: true) do |f|
-        = f.text_field :answer
-        = f.submit "回答する"
-
-      / = form_tag('/result', method: :post) do
-      /   input type="text" name="answer"
-      /   input type="submit"
-    / div
-    /   = form_with(model: @find, local: true, url: question_result_path) do |f|
-    /     = f.text_field :question
-    /     = f.submit "回答する"
-
-  / div #{question.question}
-  /div
-    = form_with(model: @find, local: true) do |f|
-      = f.label question.question
-      = f.text_field :question
-      = f.submit "回答する"
-  / div #{question.answer}
 / div
-  = form_with(model: @find, local: true) do |f|
-    = f.text_field :question
+  - @questions.each do |question|
+    = form_with(model: @result, local: true) do |f|
+        = f.label question.question
+        / = f.text_field :id, value: "#{question.id}", type: "hidden"
+        = f.hidden_field :id, :value => question.id
+        = f.text_field :answer
+      = f.submit "回答する"
+div
+  = form_with(model: @result, local: true, scope: :answer) do |f|
+    - @questions.each.with_index do |question, index|
+      = f.label question.question
+      = f.text_field "#{question.id}"
     = f.submit "回答する"
-
-/ = form_with (url: question_main_path, local: true) do |f|
-
-/ button#test
-/ = button_to 'test', {:action => "main2"}, {:method => :get}
-
-/javascript:
-  document.getElementById("test").onclick = function() {
-    const random = Math.floor( Math.random() * 50 );
-    console.log(random);
-  };
-
-  / var pTag = $('p');
-
-  / console.log( pTag[0] );

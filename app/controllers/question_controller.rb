@@ -3,19 +3,16 @@ class QuestionController < ApplicationController
 
   def main
     # debugger
-    @questions = Question.all.order("created_at ASC")
+    # @questions = Question.all.order("created_at ASC")
+    @questions = Question.order("RANDOM()").limit(3)
     # logger.debug @questions.to_yaml
-
-    # @questions = Question.all(params[:question])
-    # @questions = Question.find(random.rand(50))
-    # @questions = Question.offset( rand(Question.count) ).first
   end
 
   def result
-    debugger
-    @result = Question.find_by(answer: result_params[:answer])
+    # debugger
+    @result = Question.find_by(id: result_params[:id],answer: result_params[:answer])
     # @result = Question.find_by(answer: params[:answer])
-    debugger
+    # debugger
     if @result
       redirect_to question_result_path, notice: "回答しました"
     end
@@ -24,6 +21,7 @@ class QuestionController < ApplicationController
   private
 
   def result_params
-    params.require(:question).permit(:answer)
+    debugger
+    params.permit(:answer, :id)
   end
 end
