@@ -1,0 +1,14 @@
+p test
+= link_to("問題を新規追加する", new_question_path)
+
+= @questions.each do |q|
+  .aaa
+    = q.question
+    br
+  .iiii
+    = q.answer
+    br
+  .qqqq
+    = link_to("問題を編集する", edit_question_path(q))
+    br
+    = link_to "問題を削除する", q, method: :delete, data: { confirm: "#{q.question}を削除して大丈夫ですか？" }

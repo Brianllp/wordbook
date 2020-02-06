@@ -11,4 +11,6 @@ html
     - if current_user
       = link_to "ログアウト", destroy_user_session_path, method: :delete
       br
+      = link_to "メインメニューに戻る", root_path
+      br
     = yield

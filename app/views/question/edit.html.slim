@@ -1,0 +1,10 @@
+= form_with model: @question, url: { action: :update}, local: true do |f|
+  = f.label :question
+  br
+  = f.text_field :question, placeholder: "問題文"
+  br
+  = f.label :answer
+  br
+  = f.text_field :answer, autofocus: true, placeholder: "答えを入力してください"
+  br
+  = f.submit "問題を編集する"
