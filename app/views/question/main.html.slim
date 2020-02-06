@@ -3,20 +3,42 @@ p 英文を読み、何の単語を指すか答えなさい
   - if question.id == 1
     div #{question.question}
     div #{question.answer}
+    div
+      = form_with(model: @result, local: true) do |f|
+        = f.text_field :answer
+        = f.submit "回答する"
+
+      / = form_tag('/result', method: :post) do
+      /   input type="text" name="answer"
+      /   input type="submit"
+    / div
+    /   = form_with(model: @find, local: true, url: question_result_path) do |f|
+    /     = f.text_field :question
+    /     = f.submit "回答する"
 
   / div #{question.question}
+  /div
+    = form_with(model: @find, local: true) do |f|
+      = f.label question.question
+      = f.text_field :question
+      = f.submit "回答する"
   / div #{question.answer}
-h1 test
+/ div
+  = form_with(model: @find, local: true) do |f|
+    = f.text_field :question
+    = f.submit "回答する"
 
-button#test
+/ = form_with (url: question_main_path, local: true) do |f|
+
+/ button#test
 / = button_to 'test', {:action => "main2"}, {:method => :get}
 
-javascript:
+/javascript:
   document.getElementById("test").onclick = function() {
     const random = Math.floor( Math.random() * 50 );
     console.log(random);
   };
 
-  var pTag = $('p');
+  / var pTag = $('p');
 
-  console.log( pTag[0] );
+  / console.log( pTag[0] );
