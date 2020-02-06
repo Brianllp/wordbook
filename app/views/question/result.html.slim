@@ -11,8 +11,6 @@ p
   /   / - @correct_answers.each_with_index do |a, ia|
   /   = a
   /   br
-
-  / = @failed_questions
   = @failed_questions[0]
   br
   = @correct_answers[0]
@@ -57,7 +55,3 @@ p
   br
   = @correct_answers[10]
   br
-
-/ - @result.each do |result|
-/   div #{result.question}
-/   div #{result.answer}
