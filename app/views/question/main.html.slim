@@ -8,8 +8,10 @@ p 英文を読み、何の単語を指すか答えなさい
         = f.text_field :answer
       = f.submit "回答する"
 div
-  = form_with(model: @result, local: true, scope: :answer) do |f|
-    - @questions.each.with_index do |question, index|
-      = f.label question.question
-      = f.text_field "#{question.id}"
+  = form_with(local: true, scope: :answer) do |f|
+    - @questions.each do |q|
+      = f.label q.question
+      br
+      = f.text_field "#{q.id}"
+      br
     = f.submit "回答する"

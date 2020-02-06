@@ -1,5 +1,62 @@
-p test
-= @result
+p
+  = @success_count
+  | 問正解です
+p
+  | 問題と答え
+  br
+  / - @failed_questions.each_with_index do |q, iq|
+  /   = q
+  /   br
+  / - @correct_answers.each_with_index do |a, ia|
+  /   / - @correct_answers.each_with_index do |a, ia|
+  /   = a
+  /   br
+
+  / = @failed_questions
+  = @failed_questions[0]
+  br
+  = @correct_answers[0]
+  br
+  = @failed_questions[1]
+  br
+  = @correct_answers[1]
+  br
+  = @failed_questions[2]
+  br
+  = @correct_answers[2]
+  br
+  = @failed_questions[3]
+  br
+  = @correct_answers[3]
+  br
+  = @failed_questions[4]
+  br
+  = @correct_answers[4]
+  br
+  = @failed_questions[5]
+  br
+  = @correct_answers[5]
+  br
+  = @failed_questions[6]
+  br
+  = @correct_answers[6]
+  br
+  = @failed_questions[7]
+  br
+  = @correct_answers[7]
+  br
+  = @failed_questions[8]
+  br
+  = @correct_answers[8]
+  br
+  = @failed_questions[9]
+  br
+  = @correct_answers[9]
+  br
+  = @failed_questions[10]
+  br
+  = @correct_answers[10]
+  br
 
 / - @result.each do |result|
 /   div #{result.question}
