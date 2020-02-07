@@ -25,10 +25,7 @@ class QuestionController < ApplicationController
   end
 
   def index
-    require 'byebug'
-    # debugger
-    @questions = Question.all
-    # debugger
+    @questions = Question.all.order(updated_at: "DESC")
   end
 
   def new

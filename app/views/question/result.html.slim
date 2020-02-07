@@ -1,9 +1,9 @@
 .card.card-question-main
   .card-header
-    p
+    h3
       | 10問中
       = @success_count
-      | 問正解です
+      | 問正解です!
   .card-body
     - @failed_questions.each_with_index do |q, iq|
       | 問#{iq + 1}：
@@ -16,4 +16,4 @@
           hr
     .btn-wrap
       = link_to "もう一度問題を解く", question_main_path, class: 'btn btn-primary btn-wrap_left'
-      = link_to "メインメニューに戻る", root_path, class: 'btn btn-primary'
+      = link_to "メインメニューに戻る", root_path, class: 'btn btn-dark'
