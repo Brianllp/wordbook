@@ -1,15 +1,14 @@
-br
-p 英文を読み、何の単語を指すか答えなさい
-hr
-div
-  = form_with(local: true, scope: :answer) do |f|
-    - @questions.each.each_with_index do |q, iq|
-      | 問#{iq + 1}：
-      = f.label q.question
+.card.card-question-main
+  .card-header
+    | 英文を読み、何の単語を指すか答えなさい
+  .card-body
+    = form_with(local: true, scope: :answer) do |f|
+      - @questions.each.each_with_index do |q, iq|
+        | 問#{iq + 1}：
+        = f.label q.question
+        br
+        = f.text_field "#{q.id}", placeholder: "答えを入力してください", class: "card-question-main__form form-control"
+        br
+        hr
       br
-      = f.text_field "#{q.id}", placeholder: "答えを入力"
-      br
-      hr
-    br
-    = f.submit "回答する", class: 'btn btn-primary'
-br
+      = f.submit "解答する", class: 'btn btn-primary'

@@ -1,13 +1,16 @@
-br
-= form_with model: @question, url: { action: :create }, local: true do |f|
-  = f.label "問題文"
-  br
-  = f.text_field :question, autofocus: true, placeholder: "問題文を入力してください"
-  br
-  br
-  = f.label "答え"
-  br
-  = f.text_field :answer, autofocus: true, placeholder: "答えを入力してください"
-  br
-  br
-  = f.submit "問題を作成する", class: 'btn btn-primary'
+.card.card-wrap
+  .card-header.card-wrap__header
+    | 問題の登録
+  .card-body
+    = form_with model: @question, url: { action: :create }, local: true do |f|
+      = f.label "問題文", class: "card-wrap__title"
+      br
+      = f.text_field :question, autofocus: true, placeholder: "問題文を入力してください", class: "form-control"
+      br
+      br
+      = f.label "答え", class: "card-wrap__title"
+      br
+      = f.text_field :answer, autofocus: true, placeholder: "答えを入力してください", class: "form-control"
+      br
+      br
+      = f.submit "問題を作成する", class: 'btn btn-primary card-wrap__button'

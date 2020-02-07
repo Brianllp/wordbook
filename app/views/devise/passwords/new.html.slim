@@ -1,0 +1,15 @@
+.card.card-wrap
+  .card-header.card-wrap__header
+    h2 
+      | Password Reset
+  .card-body
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email, class: "card-wrap__title"
+        br
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+        br
+      .actions
+        = f.submit "メールを送信する", class: 'btn btn-primary card-wrap__button'
+    = render "devise/shared/links"
