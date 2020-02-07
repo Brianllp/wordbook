@@ -13,8 +13,8 @@ html
         ul.header_menu
           - if current_user
             li.nav-link
-              | Welcome to
-              = "『" + current_user.name + "』"
+              | Hello!
+              = " " + current_user.name + " "
               | !
             li.header_menu_title
               = link_to "WordBook", root_path, class: "nav-link"
@@ -27,11 +27,6 @@ html
           - else
             li.header_menu_logout-title
               = link_to "WordBook", root_path, class: "nav-link"
-    / - if current_user
-    /   = link_to "ログアウト", destroy_user_session_path, method: :delete
-    /   br
-    /   = link_to "メインメニューに戻る", root_path
-    /   br
     - if flash[:notice]
       .alert.alert-info
         = flash[:notice]
