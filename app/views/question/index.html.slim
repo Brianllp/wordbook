@@ -1,0 +1,15 @@
+br
+= link_to "問題を新規追加する", new_question_path, class: 'btn btn-primary'
+hr
+= @questions.each do |q|
+  .aaa
+    = q.question
+    br
+  .iiii
+    = q.answer
+    br
+  .btn-wrap
+    = link_to "問題を編集する", edit_question_path(q), class: 'btn btn-outline-primary btn-wrap_left'
+    br
+    = link_to "問題を削除する", q, method: :delete, data: { confirm: "#{q.question}を削除して大丈夫ですか？" }, class: 'btn btn-outline-danger'
+  hr

@@ -1,60 +1,20 @@
 p
+  | 10問中
   = @success_count
   | 問正解です
 p
   | 問題と答え
   br
-  / - @failed_questions.each_with_index do |q, iq|
-  /   = q
-  /   br
-  / - @correct_answers.each_with_index do |a, ia|
-  /   / - @correct_answers.each_with_index do |a, ia|
-  /   = a
-  /   br
-  = @failed_questions[0]
-  br
-  = @correct_answers[0]
-  br
-  = @failed_questions[1]
-  br
-  = @correct_answers[1]
-  br
-  = @failed_questions[2]
-  br
-  = @correct_answers[2]
-  br
-  = @failed_questions[3]
-  br
-  = @correct_answers[3]
-  br
-  = @failed_questions[4]
-  br
-  = @correct_answers[4]
-  br
-  = @failed_questions[5]
-  br
-  = @correct_answers[5]
-  br
-  = @failed_questions[6]
-  br
-  = @correct_answers[6]
-  br
-  = @failed_questions[7]
-  br
-  = @correct_answers[7]
-  br
-  = @failed_questions[8]
-  br
-  = @correct_answers[8]
-  br
-  = @failed_questions[9]
-  br
-  = @correct_answers[9]
-  br
-  = @failed_questions[10]
-  br
-  = @correct_answers[10]
-  br
-= link_to "もう一度問題を解く", question_main_path
-br
-= link_to "メインメニューに戻る", root_path
+  hr
+  - @failed_questions.each_with_index do |q, iq|
+    | 問#{iq + 1}：
+    = q
+    br
+    - @correct_answers.each_with_index do |a, ia|
+      - if iq == ia
+        | 答え：
+        = a
+        hr
+.btn-wrap
+  = link_to "もう一度問題を解く", question_main_path, class: 'btn btn-primary btn-wrap_left'
+  = link_to "メインメニューに戻る", root_path, class: 'btn btn-primary'

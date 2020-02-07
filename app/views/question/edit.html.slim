@@ -1,0 +1,12 @@
+= form_with model: @question, url: { action: :update}, local: true do |f|
+  = f.label "問題文"
+  br
+  = f.text_field :question
+  br
+  br
+  = f.label "答え"
+  br
+  = f.text_field :answer, autofocus: true
+  br
+  br
+  = f.submit "問題を編集する", class: 'btn btn-primary'

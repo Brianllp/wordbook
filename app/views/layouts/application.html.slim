@@ -8,7 +8,35 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    - if current_user
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
-      br
-    = yield
+    header.header
+      nav.nav
+        ul.header_menu
+          - if current_user
+            li.nav-link
+              | Welcome to
+              = "『" + current_user.name + "』"
+              | !
+            li.header_menu_title
+              = link_to "WordBook", root_path, class: "nav-link"
+            li
+              ul.header_menu_inner
+                li
+                  = link_to "Back to Menu", root_path, class: "nav-link"
+                li
+                  = link_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete
+          - else
+            li.header_menu_logout-title
+              = link_to "WordBook", root_path, class: "nav-link"
+    / - if current_user
+    /   = link_to "ログアウト", destroy_user_session_path, method: :delete
+    /   br
+    /   = link_to "メインメニューに戻る", root_path
+    /   br
+    - if flash[:notice]
+      .alert.alert-info
+        = flash[:notice]
+    - if flash[:alert]
+      .alert.alert-dangera
+        = flash[:alert]
+    .wrap
+      = yield

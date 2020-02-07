@@ -23,4 +23,49 @@ class QuestionController < ApplicationController
     end
     render text: @success_count, plane: @failed_questions
   end
+
+  def index
+    require 'byebug'
+    # debugger
+    @questions = Question.all
+    # debugger
+  end
+
+  def new
+    @question = Question.new
+  end
+
+  def create
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to question_index_path
+    # else
+    #   render action: :new
+    end
+  end
+
+  def edit
+    @question = Question.find_by(id: params[:id])
+  end
+
+  def update
+    @question = Question.find_by(id: params[:id])
+    if @question.update_attributes(question_params)
+      redirect_to question_index_path
+    # else
+    #   render action: :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find_by(id: params[:id])
+    @question.destroy
+    redirect_to question_index_path
+  end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:question, :answer)
+  end
 end
