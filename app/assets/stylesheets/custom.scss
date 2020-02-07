@@ -62,3 +62,14 @@ body {
     }
   }
 }
+
+.wrap {
+  margin: 15px 40px;
+}
+
+.btn-wrap {
+  display: flex;
+  &_left {
+    margin-right: 10px;
+  }
+}
